@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Surat Cinta Untukmu</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffe6e6;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #ff3366;
+      margin-bottom: 20px;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      border: 2px solid #ff3366;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .message {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+      color: #333;
+      max-width: 400px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: #ff3366;
+      animation: floatUp 2s ease-out forwards;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-150px) scale(2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Untuk Kamu, Dev 💌</h1>
+
+  <div class="envelope" onclick="openLoveLetter()">
+    💖 Klik Donk Untuk Buka Surat-Nya 💖
+  </div>
+
+  <div class="message" id="loveMessage">
+    <p>Hai kamu yang aku kenal 20 Februari 2025,</p>
+    <p>Aku cuma mau bilang, terima kasih sudah hadir dalam hidupku. Kamu adalah manusia pertama yang bisa membuat aku menyukai seseorang. ❤️</p>
+    <p>Aku sayang cici, yang gak bisa ku ungkapkan dengan kata-kata.</p>
+    <p>— Dari seseorang yang mengagumimu tanpa bisa ku miliki</p>
+    <p>Sehat selalu manusia Favoritku</p>
+    <p>Jangan Lupain Aku Yah... Aku selalu Support You</p>
+  </div>
+
+  <script>
+    function openLoveLetter() {
+      const message = document.getElementById("loveMessage");
+      message.style.display = "block";
+
+      // Tambahkan efek hati-hati
+      for (let i = 0; i < 10; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = `${Math.random() * window.innerWidth}px`;
+        heart.style.top = `${window.innerHeight}px`;
+        heart.textContent = "❤️";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 2000);
+      }
+    }
+  </script>
+
+</body>
+</html>
